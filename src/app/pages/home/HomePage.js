@@ -22,6 +22,7 @@ const HomePage = () => {
 
     const getData = async () => {
         try {
+           
             let response = await getTodo()
             setTodo(response);
         } catch (error) {
@@ -47,8 +48,9 @@ const HomePage = () => {
     const onDelete = async (item) => {
         try {
             let response = await deleteTodo(item.id)
-            let filtered = todo.filter((el) => el.id != item.id)
-            setTodo(filtered)
+            alert(response)
+            getData()
+        
         } catch (error) {
 
         }
@@ -64,6 +66,7 @@ const HomePage = () => {
         try {
             state["completionTime"] = moment(state["completionTime"]).format("YYYY-MM-DD");
             let response = await editTodo(state)
+            alert(response)
             getData()
             formModalRef.current.isClose()
             setType(false)
