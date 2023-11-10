@@ -1,18 +1,18 @@
 package com.test.api.model;
 
 public class LoginRequest {
-    private  String userName;
-    private  String password;
+    private String username;
+    private String password;
 
     public LoginRequest() {
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -20,14 +20,15 @@ public class LoginRequest {
     }
 
     public void setPassword(String password) {
-        password = password;
+        this.password = password;
     }
 
     @Override
     public String toString() {
         return "LoginRequest{" +
-                "userName='" + userName + '\'' +
+                "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
+// Getters and setters
 }

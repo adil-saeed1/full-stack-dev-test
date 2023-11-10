@@ -1,12 +1,15 @@
 package com.test.api.service;
 
+import com.test.api.entity.Todo;
 import com.test.api.entity.User;
-import com.test.api.model.UserProfile;
 import com.test.api.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -29,16 +32,14 @@ public class UserService {
         }
     }
 
-    public UserProfile VerifyUser(String userName, String Password) {
+    public User VerifyUser(String userName, String Password) {
 
         try {
             var user = userRepository.findByUserName(userName);
             if (user != null) {
-                if (user.getPassword() == Password) {
-                   UserProfile userProfile =  new UserProfile();
-                   userProfile.setUserName(user.getUserName());
-                   userProfile.setRole(user.getRole());
-                   return  userProfile;
+                if (user.getPassword().equals(Password)) {
+
+                   return  user;
                 }
                else
                    return  null;
@@ -50,4 +51,7 @@ public class UserService {
         }
 
     }
+
+
+
 }

@@ -10,9 +10,6 @@ public class SpringBootAndSqLiteApplication {
 
 
 		SpringApplication.run(SpringBootAndSqLiteApplication.class, args);
-
-
-
-	}
+}
 
 }
