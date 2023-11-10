@@ -11,8 +11,10 @@ export const Api_Header = axios.create({
 
 Api_Header.interceptors.request.use(async config => {
     const role = JSON.parse(localStorage.getItem("user"))
+  
     if (role) {
-        config.headers.role = role.role
+        config.headers.role = role.role;
+        config.headers.user = role.userName;
         config.headers.Accept = '*/*'
     }
     return config;

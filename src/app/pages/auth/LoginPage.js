@@ -14,7 +14,8 @@ const LoginPage = () => {
 
     const onSubmit = async () => {
         try {
-            state["userName"] = state.name
+            state["userName"] = state.email
+           
             let response = await postLogin(state)
             localStorage.setItem("user", JSON.stringify(response))
             history.replace('/app')

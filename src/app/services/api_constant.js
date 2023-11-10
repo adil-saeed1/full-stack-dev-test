@@ -1,8 +1,8 @@
 const _Environments = {
 
     development: {
-        // BASE_URL: 'http://192.168.100.84:8080',
-        BASE_URL: "http://192.168.0.247:8080",
+        BASE_URL: 'http://192.168.100.84:8080',
+        // BASE_URL: "http://192.168.0.247:8080",
         LOGIN: '/login',
         GET_TODO: "/listtodoitems",
         DELETE_TODO: "/deletetodo/",

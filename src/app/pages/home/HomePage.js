@@ -5,13 +5,15 @@ import { isObjEmpty, uuidv4 } from "../../helper/helper";
 import { deleteTodo, editTodo, getTodo, postTodo } from "../../services/api";
 import FormModal from "../../components/Modal/FormModal";
 import moment from 'moment';
+import { useHistory } from "react-router-dom"
 
 const HomePage = () => {
 
     const [todo, setTodo] = useState([])
-    const [state, setState] = useState({completionTime: new Date()})
+    const [state, setState] = useState({ completionTime: new Date() })
     const [type, setType] = useState(false)
 
+    let history = useHistory()
     const formModalRef = useRef()
 
     useEffect(() => {
@@ -28,7 +30,7 @@ const HomePage = () => {
     }
 
     const addTodo = async () => {
-       
+
         try {
             if (!isObjEmpty(state)) {
                 state["completionTime"] = moment(state["completionTime"]).format("YYYY-MM-DD");
@@ -54,7 +56,7 @@ const HomePage = () => {
 
     const onEdit = async (item) => {
         setType(true)
-        setState({...item})
+        setState({ ...item })
         formModalRef.current.isOpen()
     }
 
@@ -66,7 +68,7 @@ const HomePage = () => {
             formModalRef.current.isClose()
             setType(false)
         } catch (error) {
-            
+
         }
     }
 
@@ -80,6 +82,10 @@ const HomePage = () => {
         setState({ ...state, [name]: text })
     }
 
+    const onLogout = () => {
+        localStorage.removeItem("user")
+        history.replace("/")
+    }
     return (
         <div className='w-full'>
             <div className='container mx-auto pb-36'>
@@ -100,6 +106,15 @@ const HomePage = () => {
                             <span className='justify-center text-base flex items-center flex-1'>
                                 <span className='mr-2'>
                                     Add Todo
+                                </span>
+                            </span>
+                        </button>
+                        <button
+                            className='flex items-center h-12 bg-skyBlue px-12 rounded-lg text-white font-medium text-base mx-4 sm:w-full mr-20 sm:mr-4'
+                            onClick={() => onLogout()}>
+                            <span className='justify-center text-base flex items-center flex-1'>
+                                <span className='mr-2'>
+                                    Logout
                                 </span>
                             </span>
                         </button>
