@@ -1,0 +1,55 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        backgroundBlack: '#0A1629',
+        white: '#fff',
+        black: '#000',
+        dark: '#e3e7ea',
+        borderGray: '#dfe3e8',
+        borderGrey: '#EDEDED',
+        lightBorderGrey: '#B5B5C3',
+        darkGrey: '#828791',
+        lightGrey: '#a0a4ab',
+        lighterGrey: '#F8F8F8',
+        grey: '#F5F6F7',
+        dropShadow: '#7090B029',
+        skyBlue: "#00aee3",
+        lightSkyBlue: '#eafaff',
+        recommended: "#ffbe00",
+        buttonBorderGrey: "#f1f1f1",
+        yellow: "#ffdb04",
+        red: '#F22929',
+        bgGray: '#f8f9fa',
+        grayShade: '#14142b',
+        yellowLight: '#FFC046',
+        yellowRGA: 'rgba(255, 192, 70, 0.1)',
+        grayShade1: '#848194',
+        disableGray: '#e4e4e4',
+        textBlack: '#191632',
+        hiddenGray: '#e3e3e6',
+        green: '#47b01a'
+      },
+    },
+    screens: {
+      xxl: { min: "1441px" },
+      xl: { max: "1200px" },
+      desktop: { min: "1024px" },
+      laptop: {min: "922px", max: "1600px"},
+      lg: { max: "1200px" },
+      md: { max: "922px" },
+      tablet: {max: '810px'},
+      sm: { max: "590px" },
+      touch: {max: '480px'},
+      xs: { max: "320px" },
+    },
+  },
+  plugins: [],
+}
+
